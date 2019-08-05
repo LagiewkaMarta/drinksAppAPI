@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  color: #fad4e7; }
+
+#root {
+  height: 100vh;
+  background-color: #0d1329; }
+  #root .title-container {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Neon"; }
+    #root .title-container .title {
+      font-size: 15rem;
+      text-shadow: #f7a4cd 0px 0px 5px, #fcc3df 0px 0px 10px, #f5b1d3 0px 0px 15px, #ff0080 0px 0px 20px, #ff0080 0px 0px 30px, #ff0080 0px 0px 40px, #e70375 0px 0px 50px, #ff0080 0px 0px 75px; }
+      #root .title-container .title:hover {
+        animation: blink 2.5s; }
+    #root .title-container .subtitle {
+      font-size: 5rem;
+      padding-top: 1rem;
+      text-shadow: #2bff00b0 0px 0px 5px, #2bff00b0 0px 0px 10px, #2bff008f 0px 0px 15px, #2bff0065 0px 0px 20px, #2bff0093 0px 0px 30px, #2bff008f 0px 0px 40px, #2bff0085 0px 0px 50px, #2bff0096 0px 0px 75px; }
+
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit; }
+  79% {
+    color: #333; }
+  80% {
+    text-shadow: none; }
+  81% {
+    color: inherit;
+    text-shadow: inherit; }
+  82% {
+    color: #333;
+    text-shadow: none; }
+  83% {
+    color: inherit;
+    text-shadow: inherit; }
+  92% {
+    color: #333;
+    text-shadow: none; }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit; } }
+
+/*# sourceMappingURL=style.css.map */
