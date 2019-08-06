@@ -5,8 +5,8 @@
 
 html {
   font-size: 62.5%;
-  color: #fad4e7; 
-}
+  color: #fad4e7; }
+
 #root {
   min-height: 100vh;
   background-color: #0d1329; }
@@ -71,6 +71,9 @@ html {
         margin-top: 4rem;
         align-self: flex-start;
         text-transform: uppercase; }
+
+.drinks-container {
+  background-color: orangered; }
 
 @keyframes blink {
   78% {

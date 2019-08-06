@@ -1,5 +1,5 @@
-const drinkContainer = document.querySelector(".drink-container");
-const searchButton = document.querySelector(".random-button");
+const drinkContainer = document.querySelector(".drinks-container");
+const randomDrinkBtn = document.querySelector(".random-button");
 class Drinks {
   async fetchDrinks() {
     try {
@@ -12,59 +12,53 @@ class Drinks {
   }
 }
 class UI {
-  loopDrinks(drinks) {
+  getIngredientsList(drinks) {
     let arr = drinks.map(drink => {
-      let values = [];
+      let ingredientsArr = [];
       for (let i = 1; i <= 15; i++) {
-        values.push(`strIngredient${i}`);
-      }
-      let kissmyass = [];
-      for (let key of values) {
-        if (drink[key].length > 0) {
-          kissmyass.push(drink[key]);
-          console.log(kissmyass);
+        let ingredientKey = `strIngredient${i}`;
+        // check if ingredient exists
+        if (drink[ingredientKey].length > 0) {
+          ingredientsArr.push(drink[ingredientKey]);
         }
       }
-      let returned = values.map(el => {
-        return drink[el];
-      });
-      return kissmyass;
+      return ingredientsArr;
     });
     return arr;
   }
+
   displayDrinks(drinks) {
-    let res = "";
-    let answer = this.loopDrinks(drinks);
-
-
-    answer.forEach((arr, i) => {
-      let killme = "";
-      arr.forEach(ing => {killme += `<li>${ing}</li>`;
+    let allFetchedDrinks = "";
+    let allIngredientsLists = this.getIngredientsList(drinks);
+    allIngredientsLists.forEach((arr, i) => {
+      let singleIngredientsList = "";
+      arr.forEach(ingredient => {
+        singleIngredientsList += `<li class="single-ingredient">${ingredient}</li>`;
       });
-      console.log(drinks);
-      res += `
-        <div>${drinks[i].strDrink}</div>
-        <div>
-        <img src=${drinks[i].strDrinkThumb}></img>
-        <ul>
-        ${killme}
+      allFetchedDrinks += `
+        <h3 class="drink-name">${drinks[i].strDrink}</h3>
+        <div class="drink-container">
+        <img alt="" src=${drinks[i].strDrinkThumb}></img>
+        <ul class="ingredients-list">
+        ${singleIngredientsList}
         </ul>
         </div>
         `;
-      drinkContainer.innerHTML = res;
+      drinkContainer.innerHTML = allFetchedDrinks;
     });
   }
   //adding add event Listener on random button
-  getRandomBtn(drinks) {
-    searchButton.addEventListener("click", e => {
+  handleRandomDrink(drinks) {
+    randomDrinkBtn.addEventListener("click", e => {
       e.preventDefault();
-      let data = drinks.fetchDrinks();
-      data.then(drinks => this.displayDrinks(drinks));
+      let data = drinks
+        .fetchDrinks()
+        .then(drinks => this.displayDrinks(drinks));
     });
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
   const drinks = new Drinks();
   const ui = new UI();
-  ui.getRandomBtn(drinks);
+  ui.handleRandomDrink(drinks);
 });
