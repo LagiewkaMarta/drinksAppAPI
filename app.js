@@ -1,6 +1,5 @@
 const drinkContainer = document.querySelector(".drink-container");
 const searchButton = document.querySelector(".random-button");
-// console.log(searchButton)
 class Drinks {
   async fetchDrinks() {
     try {
@@ -15,34 +14,35 @@ class Drinks {
 class UI {
   loopDrinks(drinks) {
     let arr = drinks.map(drink => {
-        // console.log(drink)
       let values = [];
       for (let i = 1; i <= 15; i++) {
         values.push(`strIngredient${i}`);
       }
-    //   console.log(values)
+      let kissmyass = [];
+      for (let key of values) {
+        if (drink[key].length > 0) {
+          kissmyass.push(drink[key]);
+          console.log(kissmyass);
+        }
+      }
       let returned = values.map(el => {
         return drink[el];
       });
-      return returned;
+      return kissmyass;
     });
     return arr;
   }
   displayDrinks(drinks) {
     let res = "";
     let answer = this.loopDrinks(drinks);
-    // console.log(drinks,answer);
 
-    let a = answer.forEach((arr,i) => {
-        let killme = "";
-        arr.forEach(ing => {
-            if (ing.length > 0) {
-            killme += `<li>${ing}</li>`
-            }
-            
-        })
-        console.log(drinks)
-        res += `
+
+    answer.forEach((arr, i) => {
+      let killme = "";
+      arr.forEach(ing => {killme += `<li>${ing}</li>`;
+      });
+      console.log(drinks);
+      res += `
         <div>${drinks[i].strDrink}</div>
         <div>
         <img src=${drinks[i].strDrinkThumb}></img>
@@ -51,31 +51,8 @@ class UI {
         </ul>
         </div>
         `;
-        drinkContainer.innerHTML = res;
-
-
-
-    })
-    // let liItems = answer.forEach(li => {
-    //   if (li.length > 0) {
-    //     killme += `<li>${li}</li>`;
-
-    //     // console.log(killme);
-    //   }
-    // });
-
-    // drinks.forEach(drink => {
-    //   res += `
-    //         <div>${drink.strDrink}</div>
-    //         <div>
-    //         <img src=${drink.strDrinkThumb}></img>
-    //         <ul>
-    //         ${killme}
-    //         </ul>
-    //         </div>
-    //         `;
-    // });
-
+      drinkContainer.innerHTML = res;
+    });
   }
   //adding add event Listener on random button
   getRandomBtn(drinks) {
