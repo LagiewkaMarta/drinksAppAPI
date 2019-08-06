@@ -3,7 +3,7 @@ const randomDrinkBtn = document.querySelector(".random-button");
 class Drinks {
   async fetchDrinks() {
     try {
-      let drinks = await fetch("./drinks.json");
+      let drinks = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
       drinks = await drinks.json();
       return drinks.drinks;
     } catch (error) {
@@ -36,9 +36,11 @@ class UI {
         singleIngredientsList += `<li class="single-ingredient">${ingredient}</li>`;
       });
       allFetchedDrinks += `
+        <div class="drink-name-container">
         <h3 class="drink-name">${drinks[i].strDrink}</h3>
+        </div>
         <div class="drink-container">
-        <img alt="" src=${drinks[i].strDrinkThumb}></img>
+        <img class="drink-img" alt="" src=${drinks[i].strDrinkThumb}></img>
         <ul class="ingredients-list">
         ${singleIngredientsList}
         </ul>

@@ -85,6 +85,7 @@ html {
         }
       }
       .random-button {
+        font-family: "BeautySchoolDropoutII", sans-serif;
         color: #fae5c6;
         text-shadow: #ffce86 0px 0px 5px, #fae5c6 0px 0px 70px,
           #f3d2a1 0px 0px 5px, #f1c583 0px 0px 10px, #e9780e 0px 0px 15px,
@@ -98,7 +99,34 @@ html {
 }
 
 .drinks-container {
-  background-color: orangered;
+  // background-color: orangered;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .drink-name-container {
+    font-family: "Neon";
+  color: #fae5c6;
+        text-shadow: #ffce86 0px 0px 5px, #fae5c6 0px 0px 70px,
+          #f3d2a1 0px 0px 5px, #f1c583 0px 0px 10px, #e9780e 0px 0px 15px,
+          #ff5e00 0px 0px 20px, #ff5e00 0px 0px 30px, #ff5e00 0px 0px 40px;
+        text-transform: uppercase;
+        font-size: 4rem;
+        opacity: .7;
+        animation: onoff 5s infinite ease-in-out alternate;
+  }
+  .drink-container{
+  .drink-img {
+    width: 300px;
+    height: auto;
+    filter: hue-rotate(0deg);
+    border-radius: 50%;
+    transition: all 1s;
+    animation: clr 5s alternate infinite 2s;
+    // &:hover {
+    //   filter: hue-rotate(270deg);
+    // }
+  }
+}
 }
 @keyframes blink {
   78% {
@@ -132,5 +160,18 @@ html {
     text-shadow: inherit;
   }
 }
+@keyframes onoff {
+  100% {
+    opacity: 1;
+  }
+}
 
+@keyframes clr {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 //animation credit to https://codepen.io/nodws/pen/bdjwn
