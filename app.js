@@ -14,59 +14,80 @@ class Drinks {
 }
 class UI {
   loopDrinks(drinks) {
-    let arr = drinks.map(d => {
+    let arr = drinks.map(drink => {
+        // console.log(drink)
       let values = [];
-      for (let i = 1; i < 15; i++) {
+      for (let i = 1; i <= 15; i++) {
         values.push(`strIngredient${i}`);
       }
-    //   console.log(values);
-    //   console.log(d[values[0]]);
-      return values.map(el => {
-        // console.log(d[el]);
-        return d[el];
+    //   console.log(values)
+      let returned = values.map(el => {
+        return drink[el];
       });
+      return returned;
     });
     return arr;
   }
   displayDrinks(drinks) {
     let res = "";
-    let answer = [...this.loopDrinks(drinks)];
-    console.log(answer);
-    let killme = "";
-    let liItems = answer[0].forEach((li, i) => {
-        if (li.length > 0){
-        killme+= `<li>${li}</li>`
+    let answer = this.loopDrinks(drinks);
+    // console.log(drinks,answer);
 
-        console.log(killme)
-        }
-    });
+    let a = answer.forEach((arr,i) => {
+        let killme = "";
+        arr.forEach(ing => {
+            if (ing.length > 0) {
+            killme += `<li>${ing}</li>`
+            }
+            
+        })
+        console.log(drinks)
+        res += `
+        <div>${drinks[i].strDrink}</div>
+        <div>
+        <img src=${drinks[i].strDrinkThumb}></img>
+        <ul>
+        ${killme}
+        </ul>
+        </div>
+        `;
+        drinkContainer.innerHTML = res;
 
-    drinks.forEach(drink => {
-      res += `
-            <div>${drink.strDrink}</div>
-            <div>
-            <img src=${drink.strDrinkThumb}></img>
-            <ul>
-            ${killme}
-            </ul>
-            </div>
-            `;
-    });
-    drinkContainer.innerHTML = res;
+
+
+    })
+    // let liItems = answer.forEach(li => {
+    //   if (li.length > 0) {
+    //     killme += `<li>${li}</li>`;
+
+    //     // console.log(killme);
+    //   }
+    // });
+
+    // drinks.forEach(drink => {
+    //   res += `
+    //         <div>${drink.strDrink}</div>
+    //         <div>
+    //         <img src=${drink.strDrinkThumb}></img>
+    //         <ul>
+    //         ${killme}
+    //         </ul>
+    //         </div>
+    //         `;
+    // });
+
   }
+  //adding add event Listener on random button
   getRandomBtn(drinks) {
-    document.addEventListener("click", e => {
+    searchButton.addEventListener("click", e => {
       e.preventDefault();
       let data = drinks.fetchDrinks();
-      // console.log(data)
-      data.then(dr => this.displayDrinks(dr));
+      data.then(drinks => this.displayDrinks(drinks));
     });
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
   const drinks = new Drinks();
   const ui = new UI();
-  let data = ui.getRandomBtn(drinks);
-  // let data = drinks.fetchDrinks();
-  // dataa.then(dr => ui.displayDrinks(dr))
+  ui.getRandomBtn(drinks);
 });
