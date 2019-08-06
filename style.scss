@@ -13,7 +13,6 @@ html {
 
   .title-container {
     height: 30vh;
-    // background-color: blanchedalmond;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,53 +37,62 @@ html {
   }
   .form-container {
     height: 35vh;
-    // background-color: blanchedalmond;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     .form {
-        // background-color: orange;
-        display: flex;
+      display: flex;
+      padding: 1rem;
+      flex-direction: column;
+      .form-label {
+        display: none;
+      }
+      .search-input {
         padding: 1rem;
-        .form-label {
-            display: none;
-        }
-        .search-input {
-            padding: 1rem;
-            width: 35rem;
-            margin-right: 2.2rem;
-            font-size: 4rem;
-            outline: none;
-            background-color: rgb(13, 19, 41);
-            border: none;
-            border-bottom: 2px solid #dba8c7;
-            color: #dba8c7;
-            font-family: 'BeautySchoolDropoutII', sans-serif;
-            color: #b8ffa9;
-            
+        width: 35rem;
+        margin-right: 2.2rem;
+        font-size: 4rem;
+        outline: none;
+        background-color: rgb(113, 255, 31);
+        border: none;
+        // border-bottom: 2px solid #b8ffa9;
+        box-shadow: #2bff006e 0px 0px 5px, #2bff007e 0px 0px 10px,
+          #2bff0077 0px 0px 15px, #2bff0065 0px 0px 20px, #2bff0093 0px 0px 30px,
+          #37dd16b2 0px 0px 40px, #2bff0085 0px 0px 50px, #3bce1e96 0px 0px 75px;
+        color: #dba8c7;
+        font-family: "BeautySchoolDropoutII", sans-serif;
+        color: #ffffff;
 
-            transition: all; 
-        }
-        .search-button {
-            padding: 1rem;
-            border-radius:1rem;
-            background-color: transparent;
-            color: rgb(250, 198, 224);
-            opacity: .8;
-            font-family: 'Fjalla One', sans-serif;
-            font-size: 3rem;
-            outline:none;
-            border: none;
-            // border: 2px solid #e70375;
-            text-shadow: #f7a4cd 0px 0px 5px, #fcc3df 0px 0px 70px,
-        #f5b1d3 0px 0px 5px, #ff0080 0px 0px 10px, #ff0080 0px 0px 15px,
-        #ff0080 0px 0px 20px, #e70375 0px 0px 30px, #ff0080 0px 0px 40px;
-        transition: all; 
+        transition: all;
+      }
+      .search-button {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: transparent;
+        color: rgb(250, 198, 224);
+        opacity: 0.8;
+        font-family: "Fjalla One", sans-serif;
+        font-size: 3rem;
+        outline: none;
+        border: none;
+        text-shadow: #f7a4cd 0px 0px 5px, #fcc3df 0px 0px 70px,
+          #f5b1d3 0px 0px 5px, #ff0080 0px 0px 10px, #ff0080 0px 0px 15px,
+          #ff0080 0px 0px 20px, #e70375 0px 0px 30px, #ff0080 0px 0px 40px;
+        transition: all;
         &:hover {
-            opacity:1
+          opacity: 1;
         }
-        }
+      }
+      .random-button {
+        color: #fae5c6;
+        text-shadow: #ffce86 0px 0px 5px, #fae5c6 0px 0px 70px,
+          #f3d2a1 0px 0px 5px, #f1c583 0px 0px 10px, #e9780e 0px 0px 15px,
+          #ff5e00 0px 0px 20px, #ff5e00 0px 0px 30px, #ff5e00 0px 0px 40px;
+        margin-top: 4rem;
+        align-self: flex-start;
+        text-transform: uppercase;
+      }
     }
   }
 }
