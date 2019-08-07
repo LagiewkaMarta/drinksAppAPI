@@ -12,14 +12,14 @@ html {
   background-color: rgb(13, 19, 41);
 
   .title-container {
-    height: 30vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: "Neon";
     .title {
-      font-size: 15rem;
+      font-size: 13rem;
       text-shadow: #f7a4cd 0px 0px 5px, #fcc3df 0px 0px 10px,
         #f5b1d3 0px 0px 15px, #ff0080 0px 0px 20px, #ff0080 0px 0px 30px,
         #ff0080 0px 0px 40px, #e70375 0px 0px 50px, #ff0080 0px 0px 75px;
@@ -28,7 +28,7 @@ html {
       }
     }
     .subtitle {
-      font-size: 5rem;
+      font-size: 4.5rem;
       padding-top: 1rem;
       text-shadow: #2bff00b0 0px 0px 5px, #2bff00b0 0px 0px 10px,
         #2bff008f 0px 0px 15px, #2bff0065 0px 0px 20px, #2bff0093 0px 0px 30px,
@@ -36,7 +36,7 @@ html {
     }
   }
   .form-container {
-    height: 35vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,6 +49,7 @@ html {
         display: none;
       }
       .search-input {
+        text-transform: uppercase;
         padding: 1rem;
         width: 35rem;
         margin-right: 2.2rem;
@@ -72,7 +73,8 @@ html {
         background-color: transparent;
         color: rgb(250, 198, 224);
         opacity: 0.8;
-        font-family: "Fjalla One", sans-serif;
+        font-family: "BeautySchoolDropoutII", sans-serif;
+        text-transform: uppercase;
         font-size: 3rem;
         outline: none;
         border: none;
@@ -99,34 +101,48 @@ html {
 }
 
 .drinks-container {
-  // background-color: orangered;
+  // background-color: red;
+  min-height: 35vh;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  .drink-name-container {
+  .drink-container {
     font-family: "Neon";
-  color: #fae5c6;
+    color: #fae5c6;
+    text-shadow: #ffce86 0px 0px 5px, #fae5c6 0px 0px 70px, #f3d2a1 0px 0px 5px,
+      #f1c583 0px 0px 10px, #e9780e 0px 0px 15px, #ff5e00 0px 0px 20px,
+      #ff5e00 0px 0px 30px, #ff5e00 0px 0px 40px;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    opacity: 0.7;
+    animation: onoff 5s infinite ease-in-out alternate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .drink-name {
+      // margin-left: -4rem;
+    }
+    .drink-img {
+      width: 250px;
+      height: auto;
+      filter: hue-rotate(0deg);
+      border-radius: 50%;
+      transition: all 1s;
+      animation: clr 5s alternate infinite 2s;
+    }
+  }
+  .drink-ingredients-container {
+    font-family: "BeautySchoolDropoutII", sans-serif;
+        color: #fae5c6;
         text-shadow: #ffce86 0px 0px 5px, #fae5c6 0px 0px 70px,
           #f3d2a1 0px 0px 5px, #f1c583 0px 0px 10px, #e9780e 0px 0px 15px,
           #ff5e00 0px 0px 20px, #ff5e00 0px 0px 30px, #ff5e00 0px 0px 40px;
-        text-transform: uppercase;
-        font-size: 4rem;
-        opacity: .7;
-        animation: onoff 5s infinite ease-in-out alternate;
+          text-transform: uppercase;
+          font-size: 3.5rem;
+          .ingredients-list li{
+            list-style:none;
+          }
   }
-  .drink-container{
-  .drink-img {
-    width: 300px;
-    height: auto;
-    filter: hue-rotate(0deg);
-    border-radius: 50%;
-    transition: all 1s;
-    animation: clr 5s alternate infinite 2s;
-    // &:hover {
-    //   filter: hue-rotate(270deg);
-    // }
-  }
-}
 }
 @keyframes blink {
   78% {
