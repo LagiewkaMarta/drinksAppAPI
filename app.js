@@ -63,7 +63,7 @@ class UI {
     if (allIngredientsLists === null) {
       allFetchedDrinks += `
         <div class="drink-container">
-        <h3 class="drink-name">sorry no drinks found</h3>
+        <h3 class="drink-error">sorry no drinks found</h3>
         </div>
         `;
       drinkContainer.innerHTML = allFetchedDrinks;
@@ -71,19 +71,23 @@ class UI {
       allIngredientsLists.forEach((arr, i) => {
         let singleIngredientsList = "";
         arr.forEach(ingredient => {
-          singleIngredientsList += `<li class="single-ingredient">${ingredient}</li>`;
+          singleIngredientsList += `<li class="drink-ingredient">${ingredient}</li>`;
         });
         allFetchedDrinks += `
         <div class="drink-container">
-        <h3 class="drink-name">${drinks[i].strDrink}</h3>
-        <img class="drink-img" alt="" src=${drinks[i].strDrinkThumb}></img>
+        <div class="drink-container-header">
+            <h3 class="drink-name">${drinks[i].strDrink}</h3>
+            <div class="drink-img-container">
+                <img class="drink-img" src="${drinks[i].strDrinkThumb}" alt="">
+            </div>
         </div>
-        <div class="drink-ingredients-container">
-        <h5>INGREDIENTS:</h5>
-        <ul class="ingredients-list">
-        ${singleIngredientsList}
-        </ul>
+        <div class="drink-container-body">
+            <h5 class="ingredients">INGREDIENTS:</h5>
+            <ul class="drink-ingredients-list">
+            ${singleIngredientsList}
+            </ul>
         </div>
+    </div>
         `;
         drinkContainer.innerHTML = allFetchedDrinks;
       });
@@ -111,7 +115,6 @@ class UI {
         .fetchDrinks(false, inputValue)
         .then(drinks => this.displayDrinks(drinks))
         .catch(error => {
-          // console.log("error has occurred"); // "oh, no!"
           () => this.displayDrinks(null)
         });
     });
